@@ -4,12 +4,12 @@ namespace EnumSourceGenerators;
 
 public readonly record struct EnumToGenerate
 {
-    private readonly string name;
-    private readonly EquatableArray<string> values;
+    public readonly string Name;
+    public readonly EquatableArray<string> Values;
 
     public EnumToGenerate(string name, List<string> values)
     {
-        this.name = name;
-        this.values = new(values.ToArray());
+        this.Name = name;
+        this.Values = new(values.ToArray());
     }
 }
