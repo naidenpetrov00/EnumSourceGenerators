@@ -6,7 +6,7 @@ namespace EnumSourceGenerators.Tests;
 
 public class TestHelper
 {
-    public static async Task<SettingsTask> Verify(string source, ITestOutputHelper _output)
+    public static Task VerifySource(string source, ITestOutputHelper _output)
     {
         //Paresing the string to a c# syntax tree
         var syntaxTree = CSharpSyntaxTree.ParseText(source);
@@ -23,6 +23,6 @@ public class TestHelper
 
         driver = driver.RunGenerators(compilation);
 
-        return Verifier.Verify(driver);
+        return Verify(driver.GetRunResult());
     }
 }

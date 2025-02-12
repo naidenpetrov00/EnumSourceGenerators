@@ -33,6 +33,6 @@ public enum Color
         ";
 
         // _output.WriteLine(source);
-        return TestHelper.Verify(source, _output);
+        return TestHelper.VerifySource(source, _output);
     }
 }
