@@ -25,7 +25,7 @@ namespace EnumSourceGenerators
             {");
 
             sb.Append(@"
-                public static string ToStringFast(this )").Append(enumToGenerate.Name).Append(@" value
+                public static string ToStringFast(this)").Append(enumToGenerate.Name).Append(@" value
                 => value switch
                     {");
         foreach (var member in enumToGenerate.Values)
