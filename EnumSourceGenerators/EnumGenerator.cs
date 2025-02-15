@@ -43,7 +43,7 @@ public class EnumGenerator : IIncrementalGenerator
             //generate the source code of the enum and add it to the output node
             string result = SourceGenerationHelper.GenerateExtensionClass(value);
             //create separate file for each enum
-            sourceProductionContext.AddSource($"EnumExtensions.${value.Name}", result);
+            sourceProductionContext.AddSource($"EnumExtensions.{value.Name}.g.cs", SourceText.From(result,Encoding.UTF8));
         }
     }
 

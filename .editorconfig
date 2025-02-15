@@ -2,3 +2,13 @@
 
 # IDE0058: Expression value is never used
 csharp_style_unused_value_expression_statement_preference = unused_local_variable
+
+# Verify
+[*.{received,verified}.{cs}]
+charset = "utf-8-bom"
+end_of_line = lf
+indent_size = unset
+indent_style = unset
+insert_final_newline = false
+tab_width = unset
+trim_trailing_whitespace = false

@@ -8,12 +8,15 @@ namespace EnumSourceGenerators.Tests;
 
 public class EnumGeneratorSnapshotTest : VerifyBase
 {
-    private readonly ITestOutputHelper _output;
+    private readonly ITestOutputHelper output;
+    private readonly VerifySettings verifySettings;
 
     public EnumGeneratorSnapshotTest(ITestOutputHelper output)
         : base()
     {
-        _output = output;
+        this.output = output;
+        this.verifySettings = new VerifySettings();
+        this.verifySettings.UseDirectory("snapshots");
     }
 
     [Fact]
@@ -33,6 +36,6 @@ public enum Color
         ";
 
         // _output.WriteLine(source);
-        return TestHelper.VerifySource(source, _output);
+        return TestHelper.VerifySource(source, this.output, this.verifySettings);
     }
 }
