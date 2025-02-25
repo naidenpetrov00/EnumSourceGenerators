@@ -19,15 +19,15 @@ namespace EnumSourceGenerators
         var sb = new StringBuilder();
 
         sb.Append(@"
-        namespace EnumSourceGenerators
-        {
-            public static class EnumExtensions
-            {");
+namespace EnumSourceGenerators
+{
+    public static partial class EnumExtensions
+    {");
 
             sb.Append(@"
-                public static string ToStringFast(this").Append(enumToGenerate.Name).Append(@" value)
-                => value switch
-                    {");
+        public static string ToStringFast(this ").Append(enumToGenerate.Name).Append(@" value)
+            => value switch
+            {");
         foreach (var member in enumToGenerate.Values)
         {
             sb.Append(@"
@@ -38,11 +38,11 @@ namespace EnumSourceGenerators
 
         sb.Append(@"
                     _ => value.ToString(),
-                };
+            };
     ");
         sb.Append(@"
-        }
-    }");
+    }
+}");
 
         return sb.ToString();
     }
