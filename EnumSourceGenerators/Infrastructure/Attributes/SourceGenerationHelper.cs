@@ -21,10 +21,9 @@ namespace EnumSourceGenerators
         sb.Append(@"
 namespace EnumSourceGenerators
 {
-    public static partial class EnumExtensions
-    {");
-
+    public static partial class ").Append(enumToGenerate.ExtensionName);
             sb.Append(@"
+        {
         public static string ToStringFast(this ").Append(enumToGenerate.Name).Append(@" value)
             => value switch
             {");

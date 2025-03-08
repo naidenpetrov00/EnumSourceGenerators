@@ -43,7 +43,7 @@ public class EnumGenerator : IIncrementalGenerator
             //generate the source code of the enum and add it to the output node
             string result = SourceGenerationHelper.GenerateExtensionClass(value);
             //create separate file for each enum
-            sourceProductionContext.AddSource($"EnumExtensions.{value.Name}.g.cs", SourceText.From(result,Encoding.UTF8));
+            sourceProductionContext.AddSource($"EnumExtensions.{value.Name}.g.cs", SourceText.From(result, Encoding.UTF8));
         }
     }
 
@@ -103,6 +103,7 @@ public class EnumGenerator : IIncrementalGenerator
         }
 
         var enumName = enumSymbol.ToString();
+        var extensionName = $"{enumName}EnumExtensions";
 
         var enumMembers = enumSymbol.GetMembers();
         var members = new List<string>(enumMembers.Length);
@@ -120,6 +121,6 @@ public class EnumGenerator : IIncrementalGenerator
 
         //TODO: Probable problem
 
-        return new EnumToGenerate(enumName, members);
+        return new EnumToGenerate(extensionName, enumName, members);
     }
 }
